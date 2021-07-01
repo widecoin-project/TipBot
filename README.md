@@ -19,6 +19,7 @@ Features:
     - Neblio (NEBL)
     - Xuez (XUEZ)
     - SparksPay (SPK)
+    - Widecoin (WCN)
 
 
 ## Create a Bot
