@@ -371,9 +371,9 @@ function getValidatedAmount(amount) {
 }
 
 function txLink(txId) {
-  return 'http://explorer.widecoin.org:5000/tx/' + txId;
+  return 'https://explorer.widecoin.org/tx/' + txId;
 }
 
 function addyLink(address) {
-  return 'http://explorer.widecoin.org:5000/address/' + address;
+  return 'https://explorer.widecoin.org/address/' + address;
 }

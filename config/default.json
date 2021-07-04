@@ -1,0 +1,28 @@
+{
+  // Bot configuration
+  "bot": {
+      "token":"ODU4OTc0Njk0NTE4Njg1NzA1.YNl8hg.4NgOhP-2PqLnpbleZEegfvgnmVE",
+      "prefix": "!",
+      "debug": true
+  },
+  "wcn": {
+    "paytxfee": .0001,
+    "config": {
+      "port": 8552,
+      "user": "wcn123456",
+      "pass": "wcn123456"
+    }
+  },
+  
+  "moderation":{
+  "pm2Name": "TipBot",
+   // Roles that have access to all commands.
+  "perms": ["Admin","Adm2","Helpdesk","Bot"],
+  // Bot Devs!
+  "botDev": "Bot Developer",
+  // Channel to log the bots moderation..
+  "logchannel": "860131451491319808",
+  //channel that the tip message will reply in if Multi or Role tip is used.
+  "botspamchannels": ["859418961559683083"]
+  }
+}

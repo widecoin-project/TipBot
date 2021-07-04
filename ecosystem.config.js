@@ -3,13 +3,13 @@ module.exports = {
     {
       name: 'TipBot',
       script: './bot/bot.js',
-      cwd: 'Location-of-Bot-Dir',
+      cwd: '/root/TipBot',
       instance_id_env: '0',
       watch: true,
       ignore_watch : ['node_modules', 'Logs', 'Downloads', '.git'],
       error_file:
-        'Location-of-Bot-Dir/Logs/tipbot-err.log',
-      out_file: 'Location-of-Bot-Dir/Logs/tipbot-out.log',
+        '/root/TipBot/Logs/tipbot-err.log',
+      out_file: '/root/TipBot/Logs/tipbot-out.log',
       env: {
         NODE_ENV: 'development'
       },
