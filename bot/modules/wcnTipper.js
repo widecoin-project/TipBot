@@ -95,7 +95,7 @@ function getwcnprice(){
      arrresult[0] = eval("jsonres1."+ coin_name + ".btc;")
      arrresult[1] = (parseFloat(jsonres1.bitcoin.usd)).toFixed(8);
   } else if (checkprice2>0) {
-      arrresult[0]  = jsonres2.price_btc;
+      arrresult[0] = (parseFloat(jsonres2.price_btc)).toFixed(8);
       arrresult[1] = (parseFloat(jsonres2.price_usd)).toFixed(8);
   }
 
