@@ -1,7 +1,7 @@
 {
   // Bot configuration
   "bot": {
-      "token":"ODU4OTc0Njk0NTE4Njg1NzA1.YNl8hg.4NgOhP-2PqLnpbleZEegfvgnmVE",
+      "token":"ODU4OTc0Njk0NTE4Njg1NzA1.YNl8hg.zIn-dde8UpqwTjtGA_bmNTMkOzw",
       "prefix": "!",
       "debug": true
   },

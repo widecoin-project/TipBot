@@ -12,6 +12,7 @@ exports.tiphelp = {
       '  **Widecoin (WCN) Tipper**\n    Transaction Fees: **' + wcnFee + '**\n' +        
       '__**Commands**__\n' +
       '  **' + prefix + 'tipwcn** : Displays This Message\n' +
+      '  **' + prefix + 'tipwcn price** : get wcn price\n' +
       '  **' + prefix + 'tipwcn balance** : get your balance\n' +
       '  **' + prefix + 'tipwcn deposit** : get address for your deposits\n' +
       '  **' + prefix + 'tipwcn withdraw <ADDRESS> <AMOUNT>** : withdraw coins to specified address\n' +

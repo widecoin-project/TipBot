@@ -33,6 +33,9 @@ exports.tipwcn = {
       case 'balance':
         doBalance(msg, tipper);
         break;
+      case 'price':
+          getPrice(msg, tipper);
+          break;
       case 'deposit':
         privateorSpamChannel(msg, channelwarning, doDeposit, [tipper]);
         break;
@@ -44,7 +47,61 @@ exports.tipwcn = {
     }
   }
 };
+//--Market Cap--
+function getPrice(message, tipper) {
+  var getmarketdata = getwcnprice()
+  message.channel.send({ embed: {
+    description: '**:bank::money_with_wings::moneybag:Widecoin (WCN) Price!:moneybag::money_with_wings::bank:**',
+    color: 1363892,
+    fields: [
+      {
+        name: 'Current WCN/BTC price:',
+        value: '**'+ getmarketdata[0] + ' BTC' + '**',
+        inline: false
+      },
+      {
+        name: 'Current WCN/USD price:',
+        value: '**'+'$'+ getmarketdata[1] + '**',
+        inline: false
+      }
+    ]
+  } });
+}
 
+function getwcnprice(){
+  var arrresult = new Array();
+  arrresult = [];
+  var coin_name = "widecoin";
+  var coin_ticker = "wcn"
+  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+  var xmlHttp1 = new XMLHttpRequest();
+  var xmlHttp2 = new XMLHttpRequest();
+  var price1 = `https://api.coingecko.com/api/v3/simple/price?ids=${coin_name}&vs_currencies=usd,btc`;
+  var price2 = `https://api.coinpaprika.com/v1/ticker/${coin_ticker}-${coin_name}`;
+
+  xmlHttp1.open( "GET", price1, false ); // false for synchronous request
+  xmlHttp1.send( null );
+  var data1 = xmlHttp1.responseText;
+  var jsonres1 = JSON.parse(data1);
+  var checkprice1 = Object.keys(jsonres1).length;
+
+  xmlHttp2.open( "GET", price2, false ); 
+  xmlHttp2.send( null );
+  var data2 = xmlHttp2.responseText;
+  var jsonres2 = JSON.parse(data2);
+  var checkprice2 = Object.keys(jsonres2).length;
+
+  if (checkprice1>0){
+     arrresult[0] = eval("jsonres1."+ coin_name + ".btc;")
+     arrresult[1] = (parseFloat(jsonres1.bitcoin.usd)).toFixed(8);
+  } else if (checkprice2>0) {
+      arrresult[0]  = jsonres2.price_btc;
+      arrresult[1] = (parseFloat(jsonres2.price_usd)).toFixed(8);
+  }
+
+  return arrresult;
+}
+//--
 function privateorSpamChannel(message, wrongchannelmsg, fn, args) {
   if (!inPrivateorSpamChannel(message)) {
     message.reply(wrongchannelmsg);
