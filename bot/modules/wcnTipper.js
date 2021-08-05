@@ -84,8 +84,8 @@ function getwcnprice(){
   var checkprice1 = Object.keys(jsonres1).length;
 
  if (checkprice1>0) {
-    arrresult[0] = eval("jsonres1.result.price_btc;")
-    arrresult[1] = eval("jsonres1.result.price_usd;")
+    arrresult[0] = (parseFloat(jsonres1.result.price_btc)).toFixed(8);
+    arrresult[1] = (parseFloat(jsonres1.result.price_usd)).toFixed(8);
  }
 
  return arrresult;
