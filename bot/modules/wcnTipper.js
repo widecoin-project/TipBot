@@ -71,6 +71,30 @@ function getPrice(message, tipper) {
 function getwcnprice(){
   var arrresult = new Array();
   arrresult = [];
+  //var coin_name = "widecoin";
+  //var coin_ticker = "wcn"
+  var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
+  var xmlHttp1 = new XMLHttpRequest();
+  var price1 = `http://api.widecoin.org/getprice`;
+
+  xmlHttp1.open( "GET", price1, false ); // false for synchronous request
+  xmlHttp1.send( null );
+  var data1 = xmlHttp1.responseText;
+  var jsonres1 = JSON.parse(data1);
+  var checkprice1 = Object.keys(jsonres1).length;
+
+ if (checkprice1>0) {
+    arrresult[0] = eval("jsonres1.result.price_btc;")
+    arrresult[1] = eval("jsonres1.result.price_usd;")
+ }
+
+ return arrresult;
+
+}
+
+function getwcnprice_old(){
+  var arrresult = new Array();
+  arrresult = [];
   var coin_name = "widecoin";
   var coin_ticker = "wcn"
   var XMLHttpRequest = require("xmlhttprequest").XMLHttpRequest;
@@ -92,8 +116,10 @@ function getwcnprice(){
   var checkprice2 = Object.keys(jsonres2).length;
 
   if (checkprice1>0){
+     //arrresult[0] = eval("jsonres1."+ coin_name + ".btc;")
+     //arrresult[1] = (parseFloat(jsonres1.bitcoin.usd)).toFixed(8);
      arrresult[0] = eval("jsonres1."+ coin_name + ".btc;")
-     arrresult[1] = (parseFloat(jsonres1.bitcoin.usd)).toFixed(8);
+     arrresult[1] = eval("jsonres1."+ coin_name + ".usd;")
   } else if (checkprice2>0) {
       arrresult[0] = (parseFloat(jsonres2.price_btc)).toFixed(8);
       arrresult[1] = (parseFloat(jsonres2.price_usd)).toFixed(8);
